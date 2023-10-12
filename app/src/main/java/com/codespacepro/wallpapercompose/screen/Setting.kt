@@ -77,6 +77,8 @@ fun SettingScreen(navController: NavHostController) {
                     verticalArrangement = Arrangement.Top
                 ) {
 
+
+
                     // Dark Mode Toggle
                     SettingItem(
                         title = "Dark Mode",

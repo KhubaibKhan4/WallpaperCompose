@@ -49,6 +49,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
@@ -76,6 +77,8 @@ fun FullScreen(navController: NavHostController, imageUrl: String?, photographer
     var isLiked by rememberSaveable {
         mutableStateOf(false)
     }
+    val uri = imageUrl
+    val uriHandler = LocalUriHandler.current
 
     var choseWallpaper by remember {
         mutableStateOf(false)
@@ -165,6 +168,22 @@ fun FullScreen(navController: NavHostController, imageUrl: String?, photographer
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.linear_scale),
+                        contentDescription = "",
+                        tint = Color.White
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                IconButton(
+                    onClick = {
+                        uri?.let { uriHandler.openUri(it) }
+                    },
+                    modifier = Modifier
+
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.open),
                         contentDescription = "",
                         tint = Color.White
                     )
