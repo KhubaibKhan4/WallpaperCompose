@@ -8,6 +8,7 @@ Wallpaper Compose, an Android app that combines modern design with a vast collec
 - Easily search for wallpapers by keywords.
 - Immerse yourself in full-screen viewing mode.
 - Show your appreciation by liking your favorite wallpapers.
+- Memory and Network Cache Integrated.
 
 Experience a seamless and responsive UI built with Jetpack Compose. 🎨
 
