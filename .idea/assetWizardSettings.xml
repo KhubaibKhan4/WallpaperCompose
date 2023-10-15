@@ -307,7 +307,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/linear_scale/baseline_linear_scale_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/open_in_new/baseline_open_in_new_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -317,7 +317,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="linear_scale" />
+                            <entry key="outputName" value="open" />
                             <entry key="sourceFile" value="D:\Service Provider Flutter App\serviceproviderapp-221\WallpaperCompose" />
                           </map>
                         </option>

@@ -9,8 +9,9 @@ import com.codespacepro.wallpapercompose.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.util.concurrent.TimeoutException
+import javax.inject.Inject
 
-class MainViewModel(private val repository: Repository) : ViewModel() {
+class MainViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
     val myResponse: MutableLiveData<Response<Wallpaper>> = MutableLiveData()
     val mySearchResponse: MutableLiveData<Response<Wallpaper>> = MutableLiveData()
 
