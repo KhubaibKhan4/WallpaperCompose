@@ -43,6 +43,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -53,7 +54,6 @@ import androidx.core.net.toUri
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.codespacepro.wallpapercompose.R
-import com.codespacepro.wallpapercompose.navigation.navgraph.Screen
 import com.codespacepro.wallpapercompose.shared.SharedPreferenceManager
 import com.codespacepro.wallpapercompose.ui.theme.WallpaperComposeTheme
 import java.io.File
@@ -64,6 +64,8 @@ import java.io.File
 fun DetailScreen(navController: NavHostController, image: String?, photographer: String?) {
     val context = LocalContext.current
     val uriState = remember { mutableStateOf<Uri?>(null) }
+    val uriHandler = LocalUriHandler.current
+    val uri = "$image"
 
 
     val sharedPreferences = SharedPreferenceManager(context)
@@ -124,17 +126,24 @@ fun DetailScreen(navController: NavHostController, image: String?, photographer:
                         )
                         IconButton(
                             onClick = {
-                                navController.navigate(
-                                    Screen.FullScreen.passData(
-                                        Uri.encode(image),
-                                        Uri.encode(photographer)
-                                    )
-                                )
+                                navController.popBackStack()
                             },
                             modifier = Modifier.align(Alignment.BottomEnd)
                         ) {
                             Icon(
                                 painter = painterResource(id = R.drawable.fullscreen),
+                                contentDescription = "",
+                                tint = Color.White
+                            )
+                        }
+                        IconButton(
+                            onClick = {
+                                uriHandler.openUri(uri)
+                            },
+                            modifier = Modifier.align(Alignment.BottomStart)
+                        ) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.open),
                                 contentDescription = "",
                                 tint = Color.White
                             )
