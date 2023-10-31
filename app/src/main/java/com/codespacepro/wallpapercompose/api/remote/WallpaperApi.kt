@@ -1,5 +1,6 @@
 package com.codespacepro.wallpapercompose.api.remote
 
+import com.codespacepro.wallpapercompose.data.Wallpaper
 import com.codespacepro.wallpapercompose.util.Constant.Companion.AUTHORIZATION
 import com.codespacepro.wallpapercompose.util.Constant.Companion.BAREER
 import io.ktor.client.HttpClient
@@ -42,12 +43,12 @@ object WallpaperApi {
     }
 
 
-    suspend fun getWallpaper(page: Int, per_page: Int) {
+    suspend fun getWallpaper(page: Int, per_page: Int): Wallpaper {
         val url = "https://api.pexels.com/v1/curated?per_page=${per_page}&page=${page}"
         return client.get(url).body()
     }
 
-    suspend fun getSearch(query: String, page: Int, per_page: Int) {
+    suspend fun getSearch(query: String, page: Int, per_page: Int): Wallpaper {
         val url =
             "https://api.pexels.com/v1/search?query=${query}&per_page=${per_page}&page=${page}"
         return client.get(url).body()

@@ -124,6 +124,10 @@ fun HomeScreen(navController: NavHostController) {
         mutableStateOf<Wallpaper?>(null)
     }
 
+    var Ktorwallpaper = remember {
+        mutableStateOf<Wallpaper?>(null)
+    }
+
     //Mutable State for Storing List of Photos
     val wallpapers = remember {
         mutableStateListOf<Photo>()
@@ -199,6 +203,18 @@ fun HomeScreen(navController: NavHostController) {
                 Toast.makeText(context, response.code().toString(), Toast.LENGTH_SHORT)
                     .show()
             }
+        })
+
+
+        mainViewModel.myKWallpaper.observe(lifecycleOwner, Observer { response ->
+
+//            isLoading = false
+//            scope.launch {
+//                val Ktorwallpaper = WallpaperApi.getWallpaper(1, 80)
+//                Log.d("Main", Ktorwallpaper.toString())
+//            }
+
+
         })
 
     } catch (e: SocketTimeoutException) {

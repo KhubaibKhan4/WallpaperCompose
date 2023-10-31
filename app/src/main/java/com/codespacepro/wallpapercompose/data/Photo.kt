@@ -1,5 +1,8 @@
 package com.codespacepro.wallpapercompose.data
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Photo(
     val alt: String,
     val avg_color: String,
