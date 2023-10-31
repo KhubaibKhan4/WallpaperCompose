@@ -94,4 +94,12 @@ dependencies {
     //splash
     implementation("androidx.core:core-splashscreen:1.0.1")
 
+    //Ktor Client
+    implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("io.ktor:ktor-server-default-headers:2.3.5")
+    implementation("io.ktor:ktor-client-android:2.3.5")
+    implementation("io.ktor:ktor-client-serialization:2.3.5")
+
 }
